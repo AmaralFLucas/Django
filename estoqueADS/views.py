@@ -1,4 +1,6 @@
 from django.shortcuts import render, HttpResponse
+from .models import Produtos
 
 def index(request):
-    return HttpResponse('Estou no DJANGO')
+    produtos = Produtos.objects.all()
+    return render(request, 'pages/teste.html', {"produtos":produtos})
