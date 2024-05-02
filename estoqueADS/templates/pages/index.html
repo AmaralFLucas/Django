@@ -5,17 +5,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <Header>
-        <nav>
-            <div>Produtos</div>
-            <div>Pedidos</div>
-            <div>Relatórios</div>
-            <div></div>
-        </nav>
-    </Header>
+    <main>
+        <Header>
+            <nav>
+                <div>Produtos</div>
+                <div>Pedidos</div>
+                <div>Relatórios</div>
+                <div>
+                    <input type="text" class="produto" placeholder="Digite o Produto">
+                    <button>Buscar</button>
+                </div>
+            </nav>
+        </Header>
+
+        <section class="secao">
+            <button class="adicionar"><a href="{%url 'adicionar-produto' %}">Adicionar</a></button>
+            <div class="tabela">
+                <div class="cabeca-tabela">
+                    {% if produtos %}
+                        <header>
+                            <h2 class="nome">Nome</h2>
+                            <h2 class="preco">Preço</h2>
+                            <h2 class="quantidade">Quantidade</h2>
+                            <h2 class="codigo">Código</h2>
+                        </header>
+                    {% else %}
+                        <h1>Nenhum Produto Cadastrado.</h1>
+                    {% endif %}
+                </div>
+                {% for produto in produtos %}
+                <section class="corpo-tabela">
+                    <a href="{% url 'produto' produto.id %}"><h3 class="nome">{{produto.nome}}</h3></a>
+                    <h3 class="preco">{{produto.preço}}</h3>
+                    <h3 class="quantidade">{{produto.quantidade}}</h3>
+                    <h3 class="codigo">{{produto.codigo}}</h3>
+                </section>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
 </body>
 </html>

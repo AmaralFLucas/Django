@@ -12,3 +12,57 @@ body{
     background-color: black;
 }
 
+header{
+    background-color: rgb(39, 211, 154);
+    color: white;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 300px;
+}
+
+.adicionar{
+    margin-left: 250px;
+    margin-top: 25px;
+    border: none;
+    background-color: rgb(39, 211, 154);
+    color: white;
+    width: 100px;
+    height: 25px;
+    border-radius: 7px;
+}
+
+.tabela{
+    margin: 10px auto;
+    background-color: rgb(39, 211, 154);
+    width: 1500px;
+    height: 500px;
+    border-radius: 75px;
+    text-align: center;
+}
+
+div>header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1500px;
+    height: 100px;
+    border-top-left-radius: 75px;
+    border-top-right-radius: 75px;
+}
+
+.corpo-tabela{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1500px;
+    height: 100px;
+    color: white;
+    text-align: center;
+}

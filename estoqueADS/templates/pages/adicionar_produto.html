@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+</head>
+<body>
+
+    <!-- GET - OBTER DADOS
+    POST - ENVIAR DADOS
+    PUT - ATUALIZAR DADOS TOTAIS
+    PATCH - ATUALIZAR DADOS PARCIAIS -->
+
+    <form method="POST"> {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome">
+        <select name="categoria" id="">
+            {% for categoria in categorias %}
+            <option value="{{categoria.id}}">{{categoria.nome}}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="preco" placeholder="Preço">
+        <textarea name="descricao" placeholder="Descrição" id="" cols="30" rows="10"></textarea>
+        <input type="number" name="quantidade" placeholder="Quantidade">
+        <input type="text" name="codigo" placeholder="Código">
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
