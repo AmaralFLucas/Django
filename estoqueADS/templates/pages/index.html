@@ -11,6 +11,7 @@
 <body>
     <main>
         <Header>
+            <label for="">{{user}}</label>
             <nav>
                 <div>Produtos</div>
                 <div>Pedidos</div>
@@ -20,6 +21,7 @@
                     <button>Buscar</button>
                 </div>
             </nav>
+            <a href="{% url 'logout' %}">Sair</a>
         </Header>
 
         <section class="secao">
