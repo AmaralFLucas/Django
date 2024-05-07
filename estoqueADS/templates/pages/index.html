@@ -1,54 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Document</title>
-</head>
-<body>
-    <main>
-        <Header>
-            <label for="">{{user}}</label>
-            <nav>
-                <div>Produtos</div>
-                <div>Pedidos</div>
-                <div>Relatórios</div>
-                <div>
-                    <input type="text" class="produto" placeholder="Digite o Produto">
-                    <button>Buscar</button>
-                </div>
-            </nav>
-            <a href="{% url 'logout' %}">Sair</a>
-        </Header>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Início</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <label for="">{{user}}</label>
+      <nav class="navbar">
+        <ul class="nav-item">
+          <li class="nav-link"><a href="">Produtos</a></li>
+          <li class="nav-link"><a href="">Pedidos</a></li>
+          <li class="nav-link"><a href="">Relatórios</a></li>
+        </ul>
+      </nav>
+      <form action="">
+        <input type="text" />
+        <button>Buscar</button>
+      </form>
 
-        <section class="secao">
-            <button class="adicionar"><a href="{%url 'adicionar-produto' %}">Adicionar</a></button>
-            <div class="tabela">
-                <div class="cabeca-tabela">
-                    {% if produtos %}
-                        <header>
-                            <h2 class="nome">Nome</h2>
-                            <h2 class="preco">Preço</h2>
-                            <h2 class="quantidade">Quantidade</h2>
-                            <h2 class="codigo">Código</h2>
-                        </header>
-                    {% else %}
-                        <h1>Nenhum Produto Cadastrado.</h1>
-                    {% endif %}
-                </div>
-                {% for produto in produtos %}
-                <section class="corpo-tabela">
-                    <a href="{% url 'produto' produto.id %}"><h3 class="nome">{{produto.nome}}</h3></a>
-                    <h3 class="preco">{{produto.preço}}</h3>
-                    <h3 class="quantidade">{{produto.quantidade}}</h3>
-                    <h3 class="codigo">{{produto.codigo}}</h3>
-                </section>
-                {% endfor %}
-            </div>
-        </section>
+      <a href="{% url 'logout' %}">Sair</a>
+    </header>
+    <main>
+      <a href="{% url 'adicionar-produto' %}">+Produto</a>
+      <table>
+
+        {% if produtos %}
+        <thead>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Código</th>
+        </thead>
+        {% else %}
+          <h1>Nenhum produto Cadastrado.</h1>
+        {% endif %}
+
+
+        <tbody>
+          {% for produto in produtos %}
+          <tr>
+            <td>
+                <a href="{% url 'produto' produto.id %}">{{produto.nome}}</a>
+            </td>
+            <td>{{produto.categoria}}</td>
+            <td>{{produto.preço}}</td>
+            <td>{{produto.quantidade}}</td>
+            <td>{{produto.codigo}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </main>
-</body>
+  </body>
 </html>

@@ -1,10 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/addProduto.css' %}" />
 </head>
 <body>
 
@@ -13,9 +15,10 @@
     PUT - ATUALIZAR DADOS TOTAIS
     PATCH - ATUALIZAR DADOS PARCIAIS -->
 
-    <form method="POST"> {% csrf_token %}
+    <form  method="POST"> {% csrf_token %}
         <input type="text" name="nome" placeholder="Nome">
         <select name="categoria" id="">
+            <option disabled selected>---</option>
             {% for categoria in categorias %}
             <option value="{{categoria.id}}">{{categoria.nome}}</option>
             {% endfor %}
@@ -26,5 +29,6 @@
         <input type="text" name="codigo" placeholder="Código">
         <button type="submit">Cadastrar</button>
     </form>
+
 </body>
 </html>

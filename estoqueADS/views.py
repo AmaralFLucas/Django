@@ -16,6 +16,7 @@ def adicionar_produto(request):
         preco = request.POST['preco']
         descricao = request.POST['descricao']
         quantidade = request.POST['quantidade']
+        categoria = request.POST['categoria']
         codigo = request.POST['codigo']
         em_estoque = False
         if int(quantidade) > 0:
@@ -24,6 +25,7 @@ def adicionar_produto(request):
 
         Produtos.objects.create(
             nome=nome,
+            categoria_id=categoria,
             preço=preco,
             descricao=descricao,
             quantidade=quantidade,
@@ -35,7 +37,8 @@ def adicionar_produto(request):
         return redirect('index')
     
     else:
-        return render(request, 'pages/adicionar_produto.html')
+        categorias = Categoria.objects.all()
+        return render(request, 'pages/adicionar_produto.html', {'categorias':categorias})
     
 def produto(request, id):
     detalhes = Produtos.objects.get(id=id)
@@ -43,5 +46,5 @@ def produto(request, id):
 
 def excluir(request, id):
     produto = Produtos.objects.get(id=id).delete()
-    # produto.delete()
+    produto.delete()
     return redirect('index')

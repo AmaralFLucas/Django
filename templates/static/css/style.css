@@ -1,68 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    scroll-behavior: smooth;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     list-style: none;
-}
-
-body{
-    background-color: black;
+    text-decoration: none;
+    font-family: Jersey;
 }
 
 header{
-    background-color: rgb(39, 211, 154);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5% 5%;
+    background-color: rgb(23, 59, 220);
+}
+
+header > label{
+    font-size: 26px;
     color: white;
-    height: 100px;
+}
+
+.nav-item{
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+}
+
+.nav-link > a{
+    color: white;
+    font-weight: bold;
+}
+
+form{
+    display: flex;
+    gap: 5px;
+}
+
+form > button{
+    padding:3px;
+    border-radius: 4px;
+}
+
+form > input{
+    height: 1.4rem;
+}
+
+
+
+main{
+    padding: 20px 50px;
+}
+
+table{
+    margin: 10px 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 30px 30px 0 0;
+    overflow: hidden;
 }
 
-nav{
-    display: flex;
-    align-items: center;
-    gap: 300px;
-}
-
-.adicionar{
-    margin-left: 250px;
-    margin-top: 25px;
+main > a{
+    padding: 6px 2%;
+    background-color: rgba(19, 10, 192, 0.694);
+    border-radius: 12px;
+    color: white;
+    font-size: 20px;
     border: none;
-    background-color: rgb(39, 211, 154);
+    cursor: pointer;
+}
+
+
+th{
+    background-color: rgba(19, 10, 192, 0.694);
+    padding: 10px;
     color: white;
-    width: 100px;
-    height: 25px;
-    border-radius: 7px;
 }
 
-.tabela{
-    margin: 10px auto;
-    background-color: rgb(39, 211, 154);
-    width: 1500px;
-    height: 500px;
-    border-radius: 75px;
-    text-align: center;
+td{
+    padding: 10px;
 }
 
-div>header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 1500px;
-    height: 100px;
-    border-top-left-radius: 75px;
-    border-top-right-radius: 75px;
+tr:nth-child(even){
+    background-color: rgba(128, 128, 128, 0.251);
 }
-
-.corpo-tabela{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 1500px;
-    height: 100px;
-    color: white;
-    text-align: center;
+tbody > tr:hover{
+    background-color: rgba(128, 128, 128, 0.524);
+    cursor: pointer;
 }

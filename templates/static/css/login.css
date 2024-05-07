@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Jersey;
+    background-color: rgb(214, 220, 233);
+}
+
+form{
+    margin: 300px auto;
+    height: 250px;
+    width: 250px;
+    background-color: rgb(86, 115, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-direction: column;
+    border-radius: 12px;
+}
+
+input{
+    background-color: white;
+    border: none;
+    width: 165px;
+    height: 20px;
+    padding-left: 5px;
+}
+
+button{
+    width: 170px;
+    height: 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+button:hover{
+    background-color: rgb(148, 230, 255);
+}
