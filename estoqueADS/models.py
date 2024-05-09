@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=255, default=None)
@@ -7,6 +8,7 @@ class Categoria(models.Model):
         return self.nome
 
 class Produtos(models.Model):
+    criador = models.ForeignKey(User, on_delete=models.CASCADE)
     nome = models.CharField(max_length=255)
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE, blank=True)
     preço = models.DecimalField(decimal_places=2, max_digits=9)

@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
 </head>
 <body>
     
     <form method="POST"> {% csrf_token %}
-        <h2>Login</h2>
+        <h2>Cadastrar Usuário</h2>
         <input type="text" name="username" placeholder="Usuário">
+        <input type="text" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Senha">
-        <button type="submit">Entrar</button>
+        <input type="password" name="repeat_password" placeholder="Repita sua Senha">
+        <button type="submit">Cadastrar</button>
     </form>
 
 </body> 

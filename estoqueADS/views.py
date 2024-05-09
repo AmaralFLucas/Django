@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(redirect_field_name='login')
 
 def index(request):
-    produtos = Produtos.objects.all()
+    produtos = Produtos.objects.filter(criador_id=request.user.id)
     return render(request, 'pages/index.html', {"produtos":produtos})
 
 def adicionar_produto(request):
@@ -22,6 +22,7 @@ def adicionar_produto(request):
         if int(quantidade) > 0:
             em_estoque = True
         data_criacao = datetime.now()
+        criador = request.user.id
 
         Produtos.objects.create(
             nome=nome,
@@ -31,7 +32,8 @@ def adicionar_produto(request):
             quantidade=quantidade,
             codigo=codigo,
             em_estoque=em_estoque,
-            data_criacao=data_criacao
+            data_criacao=data_criacao,
+            criador_id=criador
         )
 
         return redirect('index')

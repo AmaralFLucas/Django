@@ -23,3 +23,17 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+def register(request):
+
+    if request.method == 'POST':
+        usuario = request.POST['username']
+        email = request.POST['email']
+        senha = request.POST['password']
+        repita_sua_senha = request.POST['repeat_password']
+
+        User.objects.create_user(username=usuario, password=senha, email=email)
+
+        return redirect('login')
+    else:
+        return render(request, 'pages/register.html')
