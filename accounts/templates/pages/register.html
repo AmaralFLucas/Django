@@ -12,12 +12,31 @@
     
     <form method="POST"> {% csrf_token %}
         <h2>Cadastrar Usuário</h2>
-        <input type="text" name="username" placeholder="Usuário">
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Senha">
-        <input type="password" name="repeat_password" placeholder="Repita sua Senha">
-        <button type="submit">Cadastrar</button>
+        <input type="text" id="name" name="username" placeholder="Usuário">
+        <input type="text" id="email" name="email" placeholder="Email">
+        <input type="password" id="password" name="password" placeholder="Senha">
+        <input type="password" id="repeat_password" name="repeat_password" placeholder="Repita sua Senha">
+        <button type="submit" id="register">Cadastrar</button>
     </form>
+
+    <script>
+
+        let name  =document.querySelector('#name')
+        let email  =document.querySelector('#email')
+        let password  =document.querySelector('#password')
+        let repeat_password  =document.querySelector('#repeat_password')
+        let register  =document.querySelector('#register')
+
+        name.addEventListener('change', (e)=>{
+            e.preventDefault()
+            if(name.value.length < 3){
+                name.clasList.add('invalid-input')
+            }else{
+                name.clasList.remove('invalid-input')
+            }
+        })
+
+    </script>
 
 </body> 
 </html>

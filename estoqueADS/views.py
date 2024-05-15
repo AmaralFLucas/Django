@@ -6,13 +6,17 @@ from django.contrib.auth.decorators import login_required
 @login_required(redirect_field_name='login')
 
 def index(request):
-    produtos = Produtos.objects.filter(criador_id=request.user.id)
+    query = request.GET.get('q', '')
+    print(query)
+    produtos = Produtos.objects.filter(criador_id=request.user.id, nome__icontains=query).order_by('id')
     return render(request, 'pages/index.html', {"produtos":produtos})
 
 def adicionar_produto(request):
 
     if request.method == "POST":
         nome = request.POST['nome']
+        imagem = request.FILES.get('image')
+        print(imagem)
         preco = request.POST['preco']
         descricao = request.POST['descricao']
         quantidade = request.POST['quantidade']
@@ -26,6 +30,7 @@ def adicionar_produto(request):
 
         Produtos.objects.create(
             nome=nome,
+            imagem=imagem,
             categoria_id=categoria,
             preço=preco,
             descricao=descricao,
@@ -47,6 +52,5 @@ def produto(request, id):
     return render(request, 'pages/produto.html', {'detalhe': detalhes})
 
 def excluir(request, id):
-    produto = Produtos.objects.get(id=id).delete()
-    produto.delete()
+    Produtos.objects.get(id=id).delete()
     return redirect('index')

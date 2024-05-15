@@ -1,3 +1,6 @@
+{% if detalhe.imagem %}
+<img src="{{detalhe.imagem.url}}" alt="">
+{% endif %}
 <h1>{{detalhe.nome}}</h1>
 <h1>{{detalhe.preço}}</h1>
 <h1>{{detalhe.quantidade}}</h1>

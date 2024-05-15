@@ -15,9 +15,10 @@
     PUT - ATUALIZAR DADOS TOTAIS
     PATCH - ATUALIZAR DADOS PARCIAIS -->
 
-    <form  method="POST"> {% csrf_token %}
+    <form  method="POST" enctype="multipart/form-data"> {% csrf_token %}
         <h2>Cadastrar Produtos</h2>
         <input type="text" name="nome" placeholder="Nome">
+        <input type="file" name="image">
         <select name="categoria" id="">
             <option disabled selected>---</option>
             {% for categoria in categorias %}
